@@ -27,6 +27,11 @@ class Note
      */
     private $matiere;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -40,6 +45,18 @@ class Note
     public function setNote(float $note): self
     {
         $this->note = $note;
+
+        return $this;
+    }
+
+    public function getDate(): ?datetime
+    {
+        return $this->date;
+    }
+
+    public function setDate(datetime $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

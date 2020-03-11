@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matiere{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Liste des matières</h2>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">{{matiere.nom}}</h5>
+                        <p class="card-text">Coefficient {{ matiere.coefficient }}</p>
+                        <a href="matiere/fiche/{{ matiere.id }}" class="btn btn-primary">Voir plus</a>
+                    </div>
+                </div>
+        </div>
+
+        <div class="jumbotron">
+            {{form(formMatiere)}}
+            <a href="remove/{{ matiere.id }}"><button>Supprimer</button></a>
+        </div>
+
+    </div>
+{% endblock %}

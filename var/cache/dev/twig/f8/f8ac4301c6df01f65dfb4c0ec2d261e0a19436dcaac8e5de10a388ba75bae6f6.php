@@ -56,15 +56,34 @@ class __TwigTemplate_c9e2e957f3fa0efcd33df159693291808871b3d16aed1db9b68f3dfe926
         // line 6
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 7
-        echo "    </head>
+        echo "        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
+    </head>
     <body>
+    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+            <ul class=\"navbar-nav\">
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"";
+        // line 14
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
+        echo "\">Accueil</a>
+                </li>
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"";
+        // line 17
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("matiere");
+        echo "\">Matiere</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
         ";
-        // line 9
+        // line 22
         $this->displayBlock('body', $context, $blocks);
-        // line 10
+        // line 23
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 11
+        // line 24
         echo "    </body>
 </html>
 ";
@@ -113,7 +132,7 @@ class __TwigTemplate_c9e2e957f3fa0efcd33df159693291808871b3d16aed1db9b68f3dfe926
 
     }
 
-    // line 9
+    // line 22
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -131,7 +150,7 @@ class __TwigTemplate_c9e2e957f3fa0efcd33df159693291808871b3d16aed1db9b68f3dfe926
 
     }
 
-    // line 10
+    // line 23
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -154,9 +173,14 @@ class __TwigTemplate_c9e2e957f3fa0efcd33df159693291808871b3d16aed1db9b68f3dfe926
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  135 => 10,  117 => 9,  99 => 6,  80 => 5,  68 => 11,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  154 => 23,  136 => 22,  118 => 6,  99 => 5,  87 => 24,  84 => 23,  82 => 22,  74 => 17,  68 => 14,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -167,12 +191,25 @@ class __TwigTemplate_c9e2e957f3fa0efcd33df159693291808871b3d16aed1db9b68f3dfe926
         <meta charset=\"UTF-8\">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
     </head>
     <body>
+    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+        <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+            <ul class=\"navbar-nav\">
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"{{ path('index') }}\">Accueil</a>
+                </li>
+                <li class=\"nav-item active\">
+                    <a class=\"nav-link\" href=\"{{ path('matiere') }}\">Matiere</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/Applications/MAMP/htdocs/A2/SYMFONY/symfonyEtudiant/templates/base.html.twig");
+", "base.html.twig", "/Applications/MAMP/htdocs/A2/SYMFONY/symfonyStudent/templates/base.html.twig");
     }
 }
