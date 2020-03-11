@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Matiere;
 use App\Entity\Note;
 use App\Form\MatieresType;
+use App\Form\NotesType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,10 +17,38 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index()
+    public function index( Request $request, EntityManagerInterface $entityManager)
     {
+        $note = new Note();
+
+        $matiereRepository = $this->getDoctrine()->getRepository(Matiere::class)->findAll();
+
+        $noteRepository = $this->getDoctrine()->getRepository(Note::class)->findAll();
+
+        $formNote = $this->createForm(NotesType::class, $note);
+        $formNote->handleRequest($request);
+
+        if($formNote->isSubmitted() && $formNote->isValid()){
+            $note = $formNote->getData();
+
+            $note->setDate(new \DateTime());
+
+            $matiere = $this->getDoctrine()
+                ->getRepository(Matiere::class)
+                ->find($request->request->get('matiere'));
+
+            $note->setMatiere($matiere);
+
+            $entityManager->persist($note);
+            $entityManager->flush();
+
+            $this->redirectToRoute('index');
+        }
+
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'matieres' => $matiereRepository,
+            'formNote' => $formNote->createView(),
+            'notes' => $noteRepository,
         ]);
     }
 

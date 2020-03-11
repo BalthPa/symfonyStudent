@@ -3,18 +3,33 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container">
+    <div class="jumbotron">
+        <h2>Ajouter une note</h2>
+        {{ form_start(formNote) }}
+            <select name="matiere">
+                {% for matiere in matieres %}
+                    <option value="{{ matiere.id }}">{{ matiere.nom }}</option>
+                {% endfor %}
+            </select>
+        {{ form_rest(formNote) }}
+        {{ form_end(formNote) }}
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="jumbotron">
+        <h2>Bulletin de notes</h2>
+        {% for note in notes %}
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{note.matiere.nom}}</h5>
+                    <p class="card-text">Note:  {{ note.note }}</p>
+                    <p class="card-text">Coefficient:  {{ note.matiere.coefficient }}</p>
+                    <p class="card-text">Ajouter le :  {{ note.date | date('d/m/Y H:i:s') }}</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/A2/SYMFONY/symfonyStudent/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/A2/SYMFONY/symfonyStudent/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

@@ -49,12 +49,12 @@ class Note
         return $this;
     }
 
-    public function getDate(): ?datetime
+    public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(datetime $date): self
+    public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
 
