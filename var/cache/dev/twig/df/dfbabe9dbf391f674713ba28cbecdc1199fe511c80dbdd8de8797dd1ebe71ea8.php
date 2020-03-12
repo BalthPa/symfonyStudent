@@ -179,7 +179,9 @@ class __TwigTemplate_f32fccb233b936a478678772d470b2d35bb8715f93e8442a0775678a6a5
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['note'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 37
-        echo "        <h3>Moyenne : ";
+        echo "        <h3>";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Moyenne", [], "messages");
+        echo " : ";
         echo twig_escape_filter($this->env, (isset($context["moyenne"]) || array_key_exists("moyenne", $context) ? $context["moyenne"] : (function () { throw new RuntimeError('Variable "moyenne" does not exist.', 37, $this->source); })()), "html", null, true);
         echo "</h3>
     </div>
@@ -246,7 +248,7 @@ class __TwigTemplate_f32fccb233b936a478678772d470b2d35bb8715f93e8442a0775678a6a5
             </div>
 
         {% endfor %}
-        <h3>Moyenne : {{ moyenne }}</h3>
+        <h3>{% trans %}Moyenne{% endtrans %} : {{ moyenne }}</h3>
     </div>
 </div>
 {% endblock %}

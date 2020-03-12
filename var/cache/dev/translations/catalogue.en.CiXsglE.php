@@ -133,6 +133,7 @@ $catalogue = new MessageCatalogue('en', array (
     'Ajouter une matière' => 'Add a subject',
     'Modifier' => 'Modify',
     'Supprimer' => 'Delete',
+    'Moyenne' => 'Average',
   ),
 ));
 
