@@ -66,13 +66,17 @@ class __TwigTemplate_c9e2e957f3fa0efcd33df159693291808871b3d16aed1db9b68f3dfe926
                     <a class=\"nav-link\" href=\"";
         // line 14
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
-        echo "\">Accueil</a>
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Accueil", [], "messages");
+        echo "</a>
                 </li>
                 <li class=\"nav-item active\">
                     <a class=\"nav-link\" href=\"";
         // line 17
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("matiere");
-        echo "\">Matiere</a>
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Matiere", [], "messages");
+        echo "</a>
                 </li>
             </ul>
         </div>
@@ -180,7 +184,7 @@ class __TwigTemplate_c9e2e957f3fa0efcd33df159693291808871b3d16aed1db9b68f3dfe926
 
     public function getDebugInfo()
     {
-        return array (  154 => 23,  136 => 22,  118 => 6,  99 => 5,  87 => 24,  84 => 23,  82 => 22,  74 => 17,  68 => 14,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  158 => 23,  140 => 22,  122 => 6,  103 => 5,  91 => 24,  88 => 23,  86 => 22,  76 => 17,  68 => 14,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -198,10 +202,10 @@ class __TwigTemplate_c9e2e957f3fa0efcd33df159693291808871b3d16aed1db9b68f3dfe926
         <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
             <ul class=\"navbar-nav\">
                 <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"{{ path('index') }}\">Accueil</a>
+                    <a class=\"nav-link\" href=\"{{ path('index') }}\">{% trans %}Accueil{% endtrans %}</a>
                 </li>
                 <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"{{ path('matiere') }}\">Matiere</a>
+                    <a class=\"nav-link\" href=\"{{ path('matiere') }}\">{% trans %}Matiere{% endtrans %}</a>
                 </li>
             </ul>
         </div>

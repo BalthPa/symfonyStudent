@@ -5,26 +5,30 @@
 {% block body %}
 <div class="container">
     <div class="jumbotron">
-        <h2>Ajouter une note</h2>
+        {% if matieres | length == 0 %}
+            <a href="{{path('matiere')}}"><button>Ajouter une matière</button></a>
+        {% else %}
+        <h2>{% trans %}Ajouter une note{% endtrans %}</h2>
         {{ form_start(formNote) }}
             <select name="matiere">
                 {% for matiere in matieres %}
-                    <option value="{{ matiere.id }}">{{ matiere.nom }}</option>
+                    <option value="{{ matiere.id }}">{{ matiere.nom }} - Coeff. {{ matiere.coefficient }}</option>
                 {% endfor %}
             </select>
         {{ form_rest(formNote) }}
         {{ form_end(formNote) }}
+        {% endif %}
     </div>
 
     <div class="jumbotron">
-        <h2>Bulletin de notes</h2>
+        <h2>{% trans %}Bulletin de notes{% endtrans %}</h2>
         {% for note in notes %}
             <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">{{note.matiere.nom}}</h5>
                     <p class="card-text">Note:  {{ note.note }}</p>
                     <p class="card-text">Coefficient:  {{ note.matiere.coefficient }}</p>
-                    <p class="card-text">Ajouter le :  {{ note.date | date('d/m/Y H:i:s') }}</p>
+                    <p class="card-text">{% trans %}Ajouter le{% endtrans %} :  {{ note.date | date('d/m/Y H:i:s') }}</p>
 
                 </div>
             </div>

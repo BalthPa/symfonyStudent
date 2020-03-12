@@ -12,7 +12,7 @@ namespace PackageVersions;
  */
 final class Versions
 {
-    public const ROOT_PACKAGE_NAME = 'symfony/website-skeleton';
+    public const ROOT_PACKAGE_NAME = '__root__';
     /**
      * Array of all available composer packages.
      * Dont read this array from your calling code, but use the \PackageVersions\Versions::getVersion() method instead.
@@ -127,14 +127,14 @@ final class Versions
   'symfony/profiler-pack' => 'v1.0.4@99c4370632c2a59bb0444852f92140074ef02209',
   'symfony/test-pack' => 'v1.0.6@ff87e800a67d06c423389f77b8209bc9dc469def',
   'symfony/web-profiler-bundle' => 'v5.0.5@209b76b879fee706fecbd8ad2113d810322ab62a',
-  'paragonie/random_compat' => '2.*@',
-  'symfony/polyfill-ctype' => '*@',
-  'symfony/polyfill-iconv' => '*@',
-  'symfony/polyfill-php72' => '*@',
-  'symfony/polyfill-php71' => '*@',
-  'symfony/polyfill-php70' => '*@',
-  'symfony/polyfill-php56' => '*@',
-  'symfony/website-skeleton' => 'v5.0.99@',
+  'paragonie/random_compat' => '2.*@6be09fe7b7552aa7b0788c4fdbc3aca10477bdd7',
+  'symfony/polyfill-ctype' => '*@6be09fe7b7552aa7b0788c4fdbc3aca10477bdd7',
+  'symfony/polyfill-iconv' => '*@6be09fe7b7552aa7b0788c4fdbc3aca10477bdd7',
+  'symfony/polyfill-php72' => '*@6be09fe7b7552aa7b0788c4fdbc3aca10477bdd7',
+  'symfony/polyfill-php71' => '*@6be09fe7b7552aa7b0788c4fdbc3aca10477bdd7',
+  'symfony/polyfill-php70' => '*@6be09fe7b7552aa7b0788c4fdbc3aca10477bdd7',
+  'symfony/polyfill-php56' => '*@6be09fe7b7552aa7b0788c4fdbc3aca10477bdd7',
+  '__root__' => 'dev-master@6be09fe7b7552aa7b0788c4fdbc3aca10477bdd7',
 );
 
     private function __construct()

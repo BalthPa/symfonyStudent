@@ -87,7 +87,10 @@ class __TwigTemplate_6ce9cc66213deb5c6633a697e72fdce64d2a216d0cb857aa2b212896f4b
         // line 6
         echo "    <div class=\"container\">
         <div class=\"jumbotron\">
-            <h2>Liste des matières</h2>
+            <h2>";
+        // line 8
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Liste des matières", [], "messages");
+        echo "</h2>
                 <div class=\"card text-center\">
                     <div class=\"card-body\">
                         <h5 class=\"card-title\">";
@@ -101,7 +104,9 @@ class __TwigTemplate_6ce9cc66213deb5c6633a697e72fdce64d2a216d0cb857aa2b212896f4b
                         <a href=\"matiere/fiche/";
         // line 13
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["matiere"]) || array_key_exists("matiere", $context) ? $context["matiere"] : (function () { throw new RuntimeError('Variable "matiere" does not exist.', 13, $this->source); })()), "id", [], "any", false, false, false, 13), "html", null, true);
-        echo "\" class=\"btn btn-primary\">Voir plus</a>
+        echo "\" class=\"btn btn-primary\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Voir plus", [], "messages");
+        echo "</a>
                     </div>
                 </div>
         </div>
@@ -114,7 +119,9 @@ class __TwigTemplate_6ce9cc66213deb5c6633a697e72fdce64d2a216d0cb857aa2b212896f4b
             <a href=\"remove/";
         // line 20
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["matiere"]) || array_key_exists("matiere", $context) ? $context["matiere"] : (function () { throw new RuntimeError('Variable "matiere" does not exist.', 20, $this->source); })()), "id", [], "any", false, false, false, 20), "html", null, true);
-        echo "\"><button>Supprimer</button></a>
+        echo "\"><button>";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Supprimer", [], "messages");
+        echo "</button></a>
         </div>
 
     </div>
@@ -139,7 +146,7 @@ class __TwigTemplate_6ce9cc66213deb5c6633a697e72fdce64d2a216d0cb857aa2b212896f4b
 
     public function getDebugInfo()
     {
-        return array (  116 => 20,  112 => 19,  103 => 13,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  121 => 20,  117 => 19,  106 => 13,  102 => 12,  98 => 11,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -151,19 +158,19 @@ class __TwigTemplate_6ce9cc66213deb5c6633a697e72fdce64d2a216d0cb857aa2b212896f4b
 {% block body %}
     <div class=\"container\">
         <div class=\"jumbotron\">
-            <h2>Liste des matières</h2>
+            <h2>{% trans %}Liste des matières{% endtrans %}</h2>
                 <div class=\"card text-center\">
                     <div class=\"card-body\">
                         <h5 class=\"card-title\">{{matiere.nom}}</h5>
                         <p class=\"card-text\">Coefficient {{ matiere.coefficient }}</p>
-                        <a href=\"matiere/fiche/{{ matiere.id }}\" class=\"btn btn-primary\">Voir plus</a>
+                        <a href=\"matiere/fiche/{{ matiere.id }}\" class=\"btn btn-primary\">{% trans %}Voir plus{% endtrans %}</a>
                     </div>
                 </div>
         </div>
 
         <div class=\"jumbotron\">
             {{form(formMatiere)}}
-            <a href=\"remove/{{ matiere.id }}\"><button>Supprimer</button></a>
+            <a href=\"remove/{{ matiere.id }}\"><button>{% trans %}Supprimer{% endtrans %}</button></a>
         </div>
 
     </div>

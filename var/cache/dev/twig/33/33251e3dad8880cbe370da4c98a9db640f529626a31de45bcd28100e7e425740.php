@@ -87,7 +87,10 @@ class __TwigTemplate_8249ebdb9b97d01c2f7457165cca5dd6dbb2da00c845d0adb582831dc66
         // line 6
         echo "    <div class=\"container\">
         <div class=\"jumbotron\">
-            <h2>Liste des matières</h2>
+            <h2>";
+        // line 8
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Liste des matières", [], "messages");
+        echo "</h2>
                 ";
         // line 9
         $context['_parent'] = $context;
@@ -107,7 +110,9 @@ class __TwigTemplate_8249ebdb9b97d01c2f7457165cca5dd6dbb2da00c845d0adb582831dc66
                             <a href=\"matiere/fiche/";
             // line 14
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["matiere"], "id", [], "any", false, false, false, 14), "html", null, true);
-            echo "\" class=\"btn btn-primary\">Voir plus</a>
+            echo "\" class=\"btn btn-primary\">";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Voir plus", [], "messages");
+            echo "</a>
                         </div>
                     </div>
 
@@ -120,7 +125,10 @@ class __TwigTemplate_8249ebdb9b97d01c2f7457165cca5dd6dbb2da00c845d0adb582831dc66
         echo "        </div>
 
         <div class=\"jumbotron\">
-            <h2>Ajouter une matière</h2>
+            <h2>";
+        // line 22
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Ajouter une matière", [], "messages");
+        echo "</h2>
             ";
         // line 23
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formMatiere"]) || array_key_exists("formMatiere", $context) ? $context["formMatiere"] : (function () { throw new RuntimeError('Variable "formMatiere" does not exist.', 23, $this->source); })()), 'form');
@@ -148,7 +156,7 @@ class __TwigTemplate_8249ebdb9b97d01c2f7457165cca5dd6dbb2da00c845d0adb582831dc66
 
     public function getDebugInfo()
     {
-        return array (  126 => 23,  120 => 19,  109 => 14,  105 => 13,  101 => 12,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  134 => 23,  130 => 22,  125 => 19,  112 => 14,  108 => 13,  104 => 12,  100 => 10,  96 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -160,13 +168,13 @@ class __TwigTemplate_8249ebdb9b97d01c2f7457165cca5dd6dbb2da00c845d0adb582831dc66
 {% block body %}
     <div class=\"container\">
         <div class=\"jumbotron\">
-            <h2>Liste des matières</h2>
+            <h2>{% trans %}Liste des matières{% endtrans %}</h2>
                 {% for matiere in matieres %}
                     <div class=\"card text-center\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title\">{{matiere.nom}}</h5>
                             <p class=\"card-text\">Coefficient {{ matiere.coefficient }}</p>
-                            <a href=\"matiere/fiche/{{ matiere.id }}\" class=\"btn btn-primary\">Voir plus</a>
+                            <a href=\"matiere/fiche/{{ matiere.id }}\" class=\"btn btn-primary\">{% trans %}Voir plus{% endtrans %}</a>
                         </div>
                     </div>
 
@@ -174,7 +182,7 @@ class __TwigTemplate_8249ebdb9b97d01c2f7457165cca5dd6dbb2da00c845d0adb582831dc66
         </div>
 
         <div class=\"jumbotron\">
-            <h2>Ajouter une matière</h2>
+            <h2>{% trans %}Ajouter une matière{% endtrans %}</h2>
             {{form(formMatiere)}}
         </div>
     </div>

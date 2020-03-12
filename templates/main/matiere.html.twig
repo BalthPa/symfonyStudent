@@ -5,13 +5,13 @@
 {% block body %}
     <div class="container">
         <div class="jumbotron">
-            <h2>Liste des matières</h2>
+            <h2>{% trans %}Liste des matières{% endtrans %}</h2>
                 {% for matiere in matieres %}
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">{{matiere.nom}}</h5>
                             <p class="card-text">Coefficient {{ matiere.coefficient }}</p>
-                            <a href="matiere/fiche/{{ matiere.id }}" class="btn btn-primary">Voir plus</a>
+                            <a href="matiere/fiche/{{ matiere.id }}" class="btn btn-primary">{% trans %}Voir plus{% endtrans %}</a>
                         </div>
                     </div>
 
@@ -19,7 +19,7 @@
         </div>
 
         <div class="jumbotron">
-            <h2>Ajouter une matière</h2>
+            <h2>{% trans %}Ajouter une matière{% endtrans %}</h2>
             {{form(formMatiere)}}
         </div>
     </div>

@@ -111,8 +111,14 @@ class MainController extends AbstractController
     {
         $matiere = $this->getDoctrine()->getRepository(Matiere::class)->find($id);
 
+        $notes = $this->getDoctrine()->getRepository(Note::class)->findBy(["matiere" => $matiere]);
+
+        foreach ($notes as $note) {
+            $entityManager->remove($matiere);
+        }
         $entityManager->remove($matiere);
         $entityManager->flush();
+
 
 
         return $this->redirectToRoute('matiere');

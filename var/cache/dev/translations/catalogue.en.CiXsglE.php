@@ -120,6 +120,20 @@ $catalogue = new MessageCatalogue('en', array (
     'Account is disabled.' => 'Account is disabled.',
     'Account is locked.' => 'Account is locked.',
   ),
+  'messages' => 
+  array (
+    'Ajouter une note' => 'Add a note',
+    'Ajouter' => 'Add',
+    'Bulletin de notes' => 'Gradebook',
+    'Ajouter le' => 'Add the',
+    'Accueil' => 'Home',
+    'Matiere' => 'Subjects',
+    'Liste des matières' => 'List of subject',
+    'Voir plus' => 'Show more',
+    'Ajouter une matière' => 'Add a subject',
+    'Modifier' => 'Modify',
+    'Supprimer' => 'Delete',
+  ),
 ));
 
 
