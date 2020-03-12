@@ -129,7 +129,8 @@ class MainController extends AbstractController
         $notes = $this->getDoctrine()->getRepository(Note::class)->findBy(["matiere" => $matiere]);
 
         foreach ($notes as $note) {
-            $entityManager->remove($matiere);
+            $matiere->removeNote($note);
+            $entityManager->persist($matiere);
         }
         $entityManager->remove($matiere);
         $entityManager->flush();
