@@ -45,10 +45,25 @@ class MainController extends AbstractController
             $this->redirectToRoute('index');
         }
 
+
+        $note = 0;
+        $coef = 0;
+        $coefAll = 0;
+        $somme = 0;
+        $moyenne = 0;
+        foreach ($noteRepository as $notes) {
+            $note = $notes->getNote();
+            $coef = $notes->getMatiere()->getCoefficient();
+            $coefAll += $notes->getMatiere()->getCoefficient();
+            $somme += $note * $coef;
+            $moyenne = $somme / $coefAll;
+        }
+
         return $this->render('main/index.html.twig', [
             'matieres' => $matiereRepository,
             'formNote' => $formNote->createView(),
             'notes' => $noteRepository,
+            'moyenne' => $moyenne,
         ]);
     }
 
