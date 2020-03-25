@@ -44,8 +44,7 @@ class MainController extends AbstractController
 
             $this->redirectToRoute('index');
         }
-
-
+        
         $note = 0;
         $coef = 0;
         $coefAll = 0;
